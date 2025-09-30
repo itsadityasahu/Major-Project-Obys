@@ -14,9 +14,9 @@ html, body {
 body{
     overflow-x: hidden;
 }
-.mouseFollower {
-    border: 2px solid #fff;
-    background-color: rgb(255, 255, 255);
+.mousefollower{
+    border: 2px solid #ffffffbe;
+    background-color:transparent;
     scale: 2;
     mix-blend-mode: difference;
 }
@@ -191,35 +191,25 @@ body{
     margin-bottom: 25vh;
 }
 
-#video-container img{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    top: 0;
-}
 
 #video-container {
+    background-color: red;
     height: 60vh;
     position: relative;
     width: 73%;
     margin-left: 27%;
-    background-image: url(https://obys.agency/wp-content/uploads/2022/11/Showreel-2022-preview-1.jpg);
+    background-image: url("./assets/Showreel-2022-preview-1.jpg");
+    background-size: cover;
+    background-position: center;
     /* margin-top: 20vh; */
 }
 
-#video-container img{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    top: 0;
 
-}
 #video-container video{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    opacity: 0;
 }
 
 #video-crsr{
@@ -230,7 +220,7 @@ body{
     position: absolute;
     top: -10%;
     left: 80%;
-    z-index: 9;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -384,6 +374,8 @@ body{
     position: relative;
     width: 100%;
     padding: 7vh 0;
+    margin-bottom: 20vh;
+    margin-top: 50vh;
 
 }
 
@@ -467,6 +459,8 @@ body{
     min-height: 100vh;
     width: 100%;
     position: relative;
+    margin-bottom: 20vh;
+    margin-top: 50vh;
 }
 
 .elem{
@@ -540,12 +534,13 @@ body{
 }
 
 #footer{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     /* background-color: red; */
     position: relative;
     padding-left: 28vw;
     padding-right: 6vw;
+    /* margin-bottom: 20vh; */
 }
 
 #footer h1{
@@ -600,4 +595,14 @@ body{
 ._canvas_container{
     z-index: 999999 !important;
     pointer-events: none;
+}
+
+
+#flag{
+    height:25vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    opacity: 0;
 }

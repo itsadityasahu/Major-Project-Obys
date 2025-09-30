@@ -93,13 +93,60 @@ tl.from("#hero1 h1,#hero2 h1, #hero3 h2, #hero3 h3, #hero4 h1",{
 
 
 function cursorAnimation(){
-    sheryAnimation.mouseFollower({
-       skew: true,
-       ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-       duration: 1,
+    Shery.mouseFollower();
+    Shery.makeMagnet("#nav-part2 h4");
+
+let videoContainer = document.querySelector("#video-container");
+let video1 = document.querySelector("#video-container video")
+    videoContainer.addEventListener("mouseenter",function(){
+        videoContainer.addEventListener("mousemove",function(dets){
+            gsap.to(".mousefollower",{
+                opacity:0
+            })
+            gsap.to("#video-crsr",{
+                left:dets.x -470,
+                y:dets.y -200,
+            })
+        })
+    });
+    videoContainer.addEventListener("mouseleave",function(){
+        gsap.to(".mousefollower",{
+            opacity:1
+        })
+        gsap.to("#video-crsr",{
+            left:"80%",
+            top:"-10%"
+        })
     });
 
-Shery.makeMagnet("#nav-part2 h4");
+
+
+
+    let flag = 0
+    videoContainer.addEventListener("click",function(){
+      if(flag == 0){
+        video1.play()
+        video1.style.opacity = 1
+        document.querySelector("#video-crsr").innerHTML = '<i class="ri-pause-mini-fill"></i>'
+        gsap.to("#video-crsr",{
+            scale:0.5
+        })
+        flag = 1
+      }
+      else{
+        video1.pause()
+        video1.style.opacity = 0
+        document.querySelector("#video-crsr").innerHTML = '<i class="ri-play-mini-fill"></i>'
+        gsap.to("#video-crsr",{
+            scale:1
+        })
+        flag = 0
+      }
+        
+    })
+
+
+
 }
 
 
@@ -126,4 +173,23 @@ function sheryAnimation(){
 loadingAnimation()
 cursorAnimation()
 locomotiveAnimation()
-// sheryAnimation()
+sheryAnimation()
+
+
+document.addEventListener("mousemove",function(dets){
+    gsap.to("#flag",{
+        x:dets.x,
+        y:dets.y
+    })
+})
+document.querySelector("#hero3").addEventListener("mouseenter",function(){
+    gsap.to("#flag",{
+        opacity:1
+    })
+})
+
+document.querySelector("#hero3").addEventListener("mouseleave",function(){
+    gsap.to("#flag",{
+        opacity:0
+    })
+})
