@@ -168,15 +168,8 @@ function sheryAnimation(){
     })
 }
 
-
-
-loadingAnimation()
-cursorAnimation()
-locomotiveAnimation()
-sheryAnimation()
-
-
-document.addEventListener("mousemove",function(dets){
+function flagAnimation(){
+    document.addEventListener("mousemove",function(dets){
     gsap.to("#flag",{
         x:dets.x,
         y:dets.y
@@ -193,3 +186,12 @@ document.querySelector("#hero3").addEventListener("mouseleave",function(){
         opacity:0
     })
 })
+}
+
+flagAnimation()
+loadingAnimation()
+cursorAnimation()
+locomotiveAnimation()
+sheryAnimation()
+
+
